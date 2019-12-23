@@ -1,0 +1,14 @@
+{
+  "license": "MIT",
+  "main": "index.js",
+  "name": "export-facetime-calls",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mikedeboer/export_facetime_calls.git"
+  },
+  "author": "Mike de Boer <info@mikedeboer.nl>",
+  "version": "0.1.0",
+  "dependencies": {
+    "better-sqlite3": "^5.4.3"
+  }
+}
