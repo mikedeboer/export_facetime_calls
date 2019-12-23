@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 /* use strict */
 
 const Database = require("better-sqlite3");
@@ -67,7 +68,7 @@ const EXPORT_TRANSFORMERS = {
   },
   "ZLOCATION": value => value == "<<RecentsNumberLocationNotFound>>" ? "" : value + ""
 }
-const EXPORT_SEPERATOR = "\t";
+const EXPORT_SEPARATOR = "\t";
   
 const db = new Database(DB_PATH);
 var records = db.prepare(`
@@ -75,12 +76,12 @@ var records = db.prepare(`
   FROM ${DB_NAME}
   ORDER BY QDATE DESC`).all();
 
-console.log([...EXPORT_FRIENDLY_NAMES.values()].join(EXPORT_SEPERATOR));
+console.log([...EXPORT_FRIENDLY_NAMES.values()].join(EXPORT_SEPARATOR));
 for (var record of records) {
   let fieldCount = 0;
   for (let fieldName of EXPORT_FIELDS) {
     if (++fieldCount != 1) {
-      process.stdout.write(EXPORT_SEPERATOR);
+      process.stdout.write(EXPORT_SEPARATOR);
     }
 
     fieldName = fieldName.split(" ").pop();
